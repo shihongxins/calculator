@@ -1,6 +1,10 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import router from './router';
 import store from './store';
+import math from './math';
+import './assets/css/normalize.css';
+import './assets/css/iconfont/iconfont.css';
 
-createApp(App).use(store).use(router).mount('#app');
+const app = createApp(App);
+app.config.globalProperties.$math = math;
+app.use(store).mount('#app');

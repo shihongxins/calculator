@@ -1,0 +1,142 @@
+{
+  "id": "2470566",
+  "name": "calculator",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "630083",
+      "name": "下拉",
+      "font_class": "xiala",
+      "unicode": "e65c",
+      "unicode_decimal": 58972
+    },
+    {
+      "icon_id": "666876",
+      "name": "紧凑",
+      "font_class": "speed",
+      "unicode": "e689",
+      "unicode_decimal": 59017
+    },
+    {
+      "icon_id": "7553180",
+      "name": "清退计划",
+      "font_class": "history",
+      "unicode": "e6d9",
+      "unicode_decimal": 59097
+    },
+    {
+      "icon_id": "122694",
+      "name": "delete",
+      "font_class": "delete",
+      "unicode": "e69d",
+      "unicode_decimal": 59037
+    },
+    {
+      "icon_id": "238498",
+      "name": "pin",
+      "font_class": "pin",
+      "unicode": "e6f2",
+      "unicode_decimal": 59122
+    },
+    {
+      "icon_id": "7549848",
+      "name": "目录",
+      "font_class": "menu",
+      "unicode": "e6ae",
+      "unicode_decimal": 59054
+    },
+    {
+      "icon_id": "8106280",
+      "name": "withdraw",
+      "font_class": "backspace",
+      "unicode": "e6a3",
+      "unicode_decimal": 59043
+    },
+    {
+      "icon_id": "5689326",
+      "name": "348",
+      "font_class": "info",
+      "unicode": "e920",
+      "unicode_decimal": 59680
+    },
+    {
+      "icon_id": "5736047",
+      "name": "健身-105",
+      "font_class": "time",
+      "unicode": "e8ad",
+      "unicode_decimal": 59565
+    },
+    {
+      "icon_id": "5736060",
+      "name": "教育-11",
+      "font_class": "calculator",
+      "unicode": "e8b3",
+      "unicode_decimal": 59571
+    },
+    {
+      "icon_id": "5736071",
+      "name": "教育-24",
+      "font_class": "ruler",
+      "unicode": "e8b7",
+      "unicode_decimal": 59575
+    },
+    {
+      "icon_id": "5736074",
+      "name": "教育-27",
+      "font_class": "calculator-1",
+      "unicode": "e8b9",
+      "unicode_decimal": 59577
+    },
+    {
+      "icon_id": "5736087",
+      "name": "教育-38",
+      "font_class": "date",
+      "unicode": "e8bf",
+      "unicode_decimal": 59583
+    },
+    {
+      "icon_id": "5736145",
+      "name": "教育-99",
+      "font_class": "volume",
+      "unicode": "e8e1",
+      "unicode_decimal": 59617
+    },
+    {
+      "icon_id": "5736496",
+      "name": "科学技术-10",
+      "font_class": "science",
+      "unicode": "e997",
+      "unicode_decimal": 59799
+    },
+    {
+      "icon_id": "5736580",
+      "name": "科学技术-92",
+      "font_class": "temperature",
+      "unicode": "e9c3",
+      "unicode_decimal": 59843
+    },
+    {
+      "icon_id": "5737034",
+      "name": "商业-39",
+      "font_class": "currency",
+      "unicode": "ea94",
+      "unicode_decimal": 60052
+    },
+    {
+      "icon_id": "5737142",
+      "name": "设计与开发-2",
+      "font_class": "code",
+      "unicode": "eaca",
+      "unicode_decimal": 60106
+    },
+    {
+      "icon_id": "5739227",
+      "name": "真实的-11",
+      "font_class": "area",
+      "unicode": "ee98",
+      "unicode_decimal": 61080
+    }
+  ]
+}
