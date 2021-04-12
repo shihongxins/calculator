@@ -21,7 +21,7 @@ header {
   @include font;
   line-height: 32px;
   font-size: 8px;
-  background-color: $bg-color;
+  background: $theme-color;
   h6 {
     margin: 0;
     padding: 0 0 0 2em;
@@ -38,7 +38,7 @@ header {
       line-height: 32px;
       font-size: 16px;
       &:hover {
-        background-color: $hover-color;
+        background-color: darken($theme-color, 20);
       }
       &.close:hover {
         color: #fff;

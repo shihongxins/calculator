@@ -19,12 +19,39 @@
     text-align: center;
   }
 }
+// 滚动条
+@mixin scrollbar {
+  // Firefox
+  scrollbar-color: lighten($color: $bg-color, $amount: 5) darken($color: $bg-color, $amount: 10);;
+  scrollbar-width: thin;
+  // Chromium
+  &::-webkit-scrollbar-button {
+    display: none;
+  }
+  &::-webkit-scrollbar,
+  &::-webkit-scrollbar-thumb {
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+  }
+  &::-webkit-scrollbar,
+  &::-webkit-scrollbar-track,
+  &::-webkit-scrollbar-track-piece,
+  &::-webkit-resizer,
+  &::-webkit-scrollbar-corner {
+    background: lighten($color: $bg-color, $amount: 5);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: darken($color: $bg-color, $amount: 10);
+  }
+}
+
 // 颜色
+$theme-color: #77bbaa;
 $bg-color: rgb(230,230,230);
 $btn-color: rgb(240, 240, 240);
 $numbers-color: rgb(250,250,250);
 $hover-color: rgb(180,180,180);
-$active-color: #77bbaa;
 $waring-color: #E81123;
 
 $font-light-color: #666;

@@ -1,5 +1,6 @@
 import {
   create,
+  chainDependencies,
   parserDependencies,
   parseDependencies,
   compileDependencies,
@@ -14,6 +15,7 @@ import {
 } from 'mathjs';
 
 const config = {
+  chainDependencies,
   parserDependencies,
   parseDependencies,
   compileDependencies,

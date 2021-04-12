@@ -4,19 +4,21 @@
     <strong>{{feature.description}}</strong>
     <button class="pin" title="固定在顶层"><i class="iconfont icon-pin"></i></button>
     <button class="history" title="历史"
-      v-if="feature.type=='Standard'"><i class="iconfont icon-history"></i></button>
+      v-if="feature.type==='Standard'"><i class="iconfont icon-history"></i></button>
   </nav>
 </template>
 
 <script>
 export default {
   name: 'Toolbar',
-  props: {
-    feature: Object,
+  computed: {
+    feature() {
+      return this.$store.state.feature;
+    },
   },
   methods: {
     menuClick() {
-      this.$emit('menuClick');
+      this.$store.commit('toggleAside');
     },
   },
 };
@@ -31,10 +33,11 @@ nav {
   padding-bottom: 1em;
   width: 100%;
   strong {
-    @include font;
-    font-weight: bold;
     padding: 0 0.5em;
     z-index: -1;
+    @include font;
+    font-size: 20px;
+    font-weight: bold;
   }
   button {
     width: 40px;

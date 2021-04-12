@@ -1,13 +1,8 @@
 <template>
   <div class="calculator">
     <Title></Title>
-    <Toolbar
-      :feature="feature"
-      @menuClick="toggleAside"></Toolbar>
-    <Navigation
-      :show="aside"
-      :featureType="feature.type"
-      @itemClick="changeFeature"></Navigation>
+    <Toolbar></Toolbar>
+    <Navigation></Navigation>
     <main>
       <component :is="feature.type"></component>
     </main>
@@ -23,14 +18,10 @@ import Navigation from './components/Navigation.vue';
 
 export default {
   name: 'App',
-  data() {
-    return {
-      aside: false,
-      feature: {
-        type: 'Standard',
-        description: '标准',
-      },
-    };
+  computed: {
+    feature() {
+      return this.$store.state.feature;
+    },
   },
   components: {
     Title,
@@ -38,17 +29,6 @@ export default {
     Navigation,
     Standard: defineAsyncComponent(() => import('./views/Standard')),
     Date: defineAsyncComponent(() => import('./views/Date')),
-  },
-  methods: {
-    toggleAside() {
-      this.aside = !this.aside;
-    },
-    changeFeature(newFeature) {
-      if (newFeature && newFeature.type) {
-        this.feature = newFeature;
-      }
-      this.aside = false;
-    },
   },
 };
 </script>
@@ -63,7 +43,7 @@ export default {
   transform: translate(-50%, -50%);
   width: 320px;
   height: 500px;
-  border: 1px solid #bbb;
+  border: 1px solid $theme-color;
   box-shadow: 0 0 10px 5px rgba($bg-color,0.6);
   background: $bg-color;
   @include font;

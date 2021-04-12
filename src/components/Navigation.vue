@@ -4,7 +4,7 @@
       <ul @click="itemClick">
         <li class="category">计算器</li>
         <li class="item" data-type="Standard"><i class="iconfont icon-calculator"></i>标准</li>
-        <li class="item" data-type="Date"><i class="iconfont icon-date"></i>日期</li>
+        <li class="item" data-type="Date"><i class="iconfont icon-date"></i>日期计算</li>
         <li class="category">转换器</li>
         <li class="item" data-type="Currency"><i class="iconfont icon-currency"></i>汇率</li>
         <li class="item" data-type="Temperature"><i class="iconfont icon-temperature"></i>温度</li>
@@ -24,25 +24,33 @@
 <script>
 export default {
   name: 'Navgation',
-  props: {
-    show: Boolean,
-    featureType: String,
+  computed: {
+    show() {
+      return this.$store.state.asideShow;
+    },
+    feature() {
+      return this.$store.state.feature;
+    },
+  },
+  watch: {
+    show() {
+      if (this.show) {
+        const last = this.$el.querySelector('.item.active');
+        if (last) { last.className = 'item'; }
+        this.$el.querySelector(`[data-type=${this.feature.type}]`).classList.add('active');
+      }
+    },
   },
   methods: {
     itemClick(e) {
       const item = e.target || e.srcTarget;
-      const feature = {};
       if (item.tagName === 'LI' && item.className.indexOf('active') === -1) {
+        const feature = {};
         feature.type = item.dataset.type.replace(/^\w/, '$&'.toUpperCase());
         feature.description = item.innerText;
+        this.$store.commit('changeFeature', feature);
       }
-      this.$emit('itemClick', feature);
     },
-  },
-  updated() {
-    const last = this.$el.querySelector('.item.active');
-    if (last) { last.className = 'item'; }
-    this.$el.querySelector(`[data-type=${this.featureType}]`).classList.add('active');
   },
 };
 </script>
@@ -66,6 +74,7 @@ aside {
     padding: 0;
     list-style: none;
     overflow-y: auto;
+    @include scrollbar;
   }
   .footer {
     padding: 20px 0 10px;
@@ -91,10 +100,11 @@ aside {
     background: $hover-color;
   }
   .item.active .iconfont {
-    border-left: 4px solid $active-color;
+    border-left: 4px solid $theme-color;
   }
 }
-//组件过渡效果
+// 组件过渡效果
+// Vue3 将 v-enter/v-leave 等过渡效果第一帧改为了 v-enter-from/v-leave-from ，分别与最后一帧 v-****-to 对应
 .aside-enter-active,
 .aside-leave-active {
   transition: left .5s ease;
