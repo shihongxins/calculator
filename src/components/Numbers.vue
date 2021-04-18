@@ -53,6 +53,9 @@ export default {
     &[data-key='0'] {
       grid-column-start: 2;
     }
+    * {
+      pointer-events: none;
+    }
   }
 }
 </style>

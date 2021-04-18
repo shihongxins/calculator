@@ -14,7 +14,7 @@ import {
   unitDependencies,
 } from 'mathjs';
 
-const config = {
+const factories = {
   chainDependencies,
   parserDependencies,
   parseDependencies,
@@ -28,5 +28,8 @@ const config = {
   sqrtDependencies,
   unitDependencies,
 };
-const math = create(config);
+const config = {
+  precision: 15,
+};
+const math = create(factories, config);
 export { math as default };

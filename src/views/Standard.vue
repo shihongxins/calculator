@@ -206,10 +206,10 @@ export default {
         /* eslint-enable */
         if (className === 'reciprocal') {
           // 倒数
-          temp = `1/(${temp})`;
+          temp = `(1/(${temp}))`;
         } else if (className === 'percentage') {
           // 百分数
-          temp = `(${temp})/100`;
+          temp = `((${temp})/100)`;
         } else if (className === 'square') {
           // 平方
           temp = `square(${temp})`;
@@ -222,10 +222,13 @@ export default {
           this.formula = `${temp}`;
         } else {
           // 将上一次的项目替换为函数包裹的项目
-          // eslint-disable-next-line
-          // 先替换为空，因为可能上一次的项目是本次从正在输入中自动设置的，公式中还没设置
-          this.formula = this.formula.replace(this.lastItem, '');
-          // 再替换为函数包裹项
+          if (this.status === 'waiting') {
+            // eslint-disable-next-line
+            const reg = new RegExp(`${this.lastItem}[\\s\\+\\-\\*\\/]*$`);
+            // 先替换为空，因为可能上一次的项目是本次从正在输入中自动设置的，公式中还没设置
+            this.formula = this.formula.replace(reg, '');
+          }
+          // 公式末尾接上函数包裹项
           this.formula += temp;
         }
         // 公式修改完成，自动记录到上一次修改项，并更新状态
@@ -233,7 +236,8 @@ export default {
         this.status = 'waiting';
         try {
           // 自动计算函数公式
-          this.input = this.$math.parse(this.formula).evaluate().toString();
+          const node = this.$math.parse(this.formula);
+          this.input = this.$math.format(node.evaluate(), 16).toString();
         } catch (e) {
           console.error(e.message);
           this.status = 'error';
@@ -367,7 +371,7 @@ export default {
         const node = this.$math.parse(this.formula);
         if (node) {
           this.formula = `${node.toString()} = `;
-          this.input = node.evaluate().toString();
+          this.input = this.$math.format(node.evaluate(), 16).toString();
           this.lastItem = this.input;
           this.status = 'calculated';
         }
@@ -441,6 +445,9 @@ export default {
       &:hover {
         border-color: whitesmoke;
         background: $hover-color;
+      }
+      * {
+        pointer-events: none;
       }
     }
     .numbers {

@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import store from './store';
-import math from './math';
+import math from './plugins/math';
 
 import './assets/css/normalize.css';
 import './assets/css/iconfont/iconfont.css';
